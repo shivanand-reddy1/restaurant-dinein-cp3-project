@@ -1,47 +1,95 @@
-District Dine is a full-stack MERN application designed to simplify restaurant table reservations, food selection, and slot-based booking management.
-The system ensures that no two users can book the same time slot and supports email confirmations using SMTP.
+A full-stack MERN application for seamless restaurant dine-in reservations with real-time slot availability, integrated food selection, and automated email confirmations.
 
-📌 Features
-🧑‍💻 User Features
+🔗 Live Application: https://district-dine-app.onrender.com/
 
-Book a dine-in reservation with:
+📦 Repository: https://github.com/shivanand-reddy1/restaurant-dinein-cp3-project
 
-Name, Email, Phone
+**📚 Table of Contents**
 
-Number of Guests
+Overview
 
-Food Selection (Dropdown)
+Features
+
+Tech Stack
+
+Folder Structure
+
+Installation & Setup
+
+Environment Variables
+
+API Endpoints
+
+Slot Booking Logic
+
+Deployment
+
+Contributing
+
+License
+
+**📌 Overview**
+
+District Dine is a modern web-based dine-in reservation system built with the MERN stack.
+It helps customers book tables with:
+
+Preferred date & time slot
+
+Food items selection
+
+Guest count
+
+Contact details
+
+The backend ensures no duplicate bookings for the same time slot and sends instant email confirmations using SMTP.
+
+**✨ Features**
+👨‍🍽️ User Features
+
+Book dine-in reservations with:
+
+Name, Email, Phone Number
+
+Guests Count
+
+Food Selection (dropdown)
 
 Date & Time Slot (9 AM – 6 PM)
 
-Slot-wise booking system (prevents double booking)
+Real-time slot availability check
 
-Email confirmation on successful reservation
+Prevents double slot booking
 
-Clean UI made with React + TailwindCSS
+Success page after reservation
 
-⚙️ Admin / Backend Features
+Email confirmation to users
 
-REST API built using Node.js + Express
+Clean UI created using React + TailwindCSS
 
-MongoDB database for reservations & user data
+🛠 Backend Features
 
-Slot availability validation
+RESTful API using Node.js + Express
 
-Error handling middleware
+MongoDB database with Mongoose models
 
-SMTP support for sending confirmation emails
+Slot validation logic
 
-🛠️ Tech Stack
+Centralized error handling middleware
+
+Email automation using Nodemailer (SMTP)
+
+Fully CORS-configured architecture
+
+**🧰 Tech Stack**
 Frontend
 
 React.js
 
 React Router
 
-Axios
-
 Tailwind CSS
+
+Axios
 
 React Icons
 
@@ -51,143 +99,65 @@ Node.js
 
 Express.js
 
-MongoDB (Mongoose)
+MongoDB + Mongoose
 
-Nodemailer (SMTP Emails)
+Nodemailer
 
-dotenv & cors
+dotenv
+
+CORS
 
 📁 Folder Structure
-restaurant-dinein-cp3-project/
-│
-├── backend/
-│   ├── controller/
-│   │   ├── reservationController.js
-│   │   └── userController.js
-│   ├── database/
-│   │   └── dbConnection.js
-│   ├── middlewares/
-│   │   └── error.js
-│   ├── models/
-│   │   ├── reservation.js
-│   │   └── user.js
-│   ├── routes/
-│   │   ├── reservationRoute.js
-│   │   └── userRoute.js
-│   ├── utils/
-│   │   └── sendEmails.js
-│   ├── server.js
-│   └── package.json
-│
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── About.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   ├── HeroSection.jsx
-│   │   │   ├── Menu.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Qualities.jsx
-│   │   │   ├── Reservation.jsx
-│   │   │   ├── Team.jsx
-│   │   │   └── WhoAreWe.jsx
-│   │   ├── Pages/
-│   │   │   ├── Home.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── Register.jsx
-│   │   │   ├── NotFound.jsx
-│   │   │   └── Success.jsx
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── assets/
-│   ├── package.json
-│   ├── vite.config.js
-│   └── README.md
-│
-├── config.env
-├── package.json
-└── README.md
+<img width="264" height="528" alt="Screenshot 2025-11-14 103107" src="https://github.com/user-attachments/assets/137b8eba-b6db-47e5-b0e3-7d1e299f89a9" />
 
-🚀 Getting Started
-1️⃣ Clone the Repository
+**🚀 Installation & Setup**
+1️⃣ Clone Repository
 git clone https://github.com/shivanand-reddy1/restaurant-dinein-cp3-project.git
 cd restaurant-dinein-cp3-project
 
-⚙ Backend Setup
-2️⃣ Install Backend Dependencies
+**📦 Backend Setup**
+2️⃣ Install Dependencies
 cd backend
 npm install
 
-3️⃣ Create config.env
-PORT=5000
-MONGO_URI=your_mongo_url
+3️⃣ Add Environment Variables
 
-# SMTP (Example for Gmail)
+Create a file named config.env
+
+PORT=5000
+MONGO_URI=your_mongo_connection_string
+
+# SMTP (Gmail Example)
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
-SMTP_USER=your_email@gmail.com
+SMTP_USER=your_gmail@gmail.com
 SMTP_PASS=your_app_password
 
 FROM_EMAIL="District Dine <no-reply@districtdine.com>"
 FRONTEND_URL=http://localhost:5173
 
-4️⃣ Start Backend
-npm run dev
+**4️⃣ Start Backend**
+npm start
 
-🖥 Frontend Setup
-5️⃣ Install Frontend Dependencies
+**🖥 Frontend Setup**
+5️⃣ Install Dependencies
 cd ../frontend
 npm install
 
-6️⃣ Start Frontend
+**6️⃣ Run Frontend**
 npm run dev
 
-📌 API Endpoints
-POST /api/reservation/new
+🤝 Contributing
 
-Create a new reservation
+**Contributions and pull requests are welcome!**
+Guidelines:
 
-GET /api/reservation/all
+Fork the repository
 
-Get all reservations
+Create a new feature branch
 
-POST /api/user/register
+Commit changes
 
-Register a user
-
-POST /api/user/login
-
-Login user
-
-🔐 Slot Booking Logic
-
-Slots available: 9 AM – 6 PM
-
-When the user selects a slot, backend checks:
-
-if(slotAlreadyBooked)
-    return "Slot Already Booked"
+Submit a PR
 
 
-If free → reservation stored → email sent
-
-🌐 Deployment
-
-Project hosted on Render:
-
-🔗 Live URL:
-https://district-dine-app.onrender.com/
-
-📸 Screenshots
-
-(Add when required)
-
-🤝 Contribution
-
-Pull requests are welcome!
-Please create a new branch and submit PR.
-
-📄 License
-
-MIT License © 2025 District Dine
